@@ -22,6 +22,7 @@ module "catalogue" {
   vpc_security_group_ids = [data.aws_ssm_parameter.catalogue_sg_id.value]
   subnet_id              = element(split(",",data.aws_ssm_parameter.private_subnet_ids.value),0)
   iam_instance_profile = "admin-role"
+  app_version = var.app_version
   tags = merge(
     var.common_tags,
     var.tags
@@ -50,7 +51,7 @@ resource "null_resource" "catalogue" {
   provisioner "remote-exec" {
     inline = [
         "chmod +x /tmp/bootstrap.sh",
-        "sudo sh /tmp/bootstrap.sh catalogue dev"
+        "sudo sh /tmp/bootstrap.sh catalogue dev app_version"
     ]
   }
   }

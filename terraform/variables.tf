@@ -19,3 +19,6 @@ variable "tags" {
 variable "zone_name" {
     default = "sowjanyaaws.online"
 }
+variable "app_version" {
+    
+}
