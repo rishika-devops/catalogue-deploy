@@ -14,8 +14,8 @@ pipeline {
         ansiColor('xterm')
     }
     parameters {
-        string(name: 'version' , defaultvalue: '' , description: 'what is the artifact version?' )
-        string(name: 'environment' , defaultvalue: '' , description: 'what is environment?' )
+        string(name: 'version' , defaultValue: '' , description: 'what is the artifact version?' )
+        string(name: 'environment' , defaultValue: '' , description: 'what is environment?' )
     }
     stages {
         stage('get version') { 
