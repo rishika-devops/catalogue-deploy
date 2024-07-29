@@ -4,10 +4,6 @@ pipeline {
             label 'Agent-1'
         }
     }
-    environment {
-        packageversion = ''
-        nexusURL = '34.226.214.252:8081'
-    }
     options {
         timeout(time: 1 , unit : 'HOURS')
         disableConcurrentBuilds()
@@ -18,15 +14,6 @@ pipeline {
         string(name: 'environment' , defaultValue: '' , description: 'what is environment?' )
     }
     stages {
-        stage('get version') { 
-            steps {
-                script {
-                    def PackageJson = readJSON file: 'package.json'
-                    packageversion = PackageJson.version
-                    echo "application version: $packageversion"
-                } 
-            }
-        }
         stage('print version') { 
             steps {
                 sh """
