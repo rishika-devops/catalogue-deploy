@@ -1,5 +1,5 @@
-module "payment" {
-    source = "../../terraform-roboshop-app"
+module "catalogue" {
+    source = "git::https://github.com/daws-76s/terraform-roboshop-app.git?ref=main"
     vpc_id = data.aws_ssm_parameter.vpc_id.value
     component_sg_id = data.aws_ssm_parameter.payment_sg_id.value
     private_subnet_ids = split(",",data.aws_ssm_parameter.private_subnet_ids.value)
