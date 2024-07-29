@@ -16,9 +16,12 @@ variable "tags" {
         Component = "catalogue"
     }
 }
+variable "iam_instance_profile" {
+    default = "admin-role"
+}
 variable "zone_name" {
     default = "sowjanyaaws.online"
 }
 variable "app_version" {
-    
+
 }
