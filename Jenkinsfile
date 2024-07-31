@@ -9,6 +9,10 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
+    environment {
+        NEXUS_USER = credentials('admin')
+        NEXUS_PASS = credentials('sowji123')
+    }
     parameters {
         string(name: 'version' , defaultValue: '' , description: 'what is the artifact version?' )
         string(name: 'environment' , defaultValue: 'dev' , description: 'what is environment?' )
