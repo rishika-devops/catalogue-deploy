@@ -4,10 +4,6 @@ pipeline {
             label 'Agent-1'
         }
     }
-    environment {
-        NEXUS_USER = credentials('admin')
-        NEXUS_PASS = credentials('sowji123')
-    }
     options {
         timeout(time: 1 , unit : 'HOURS')
         disableConcurrentBuilds()
