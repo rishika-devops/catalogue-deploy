@@ -20,7 +20,7 @@ pipeline {
                         
                         // Securely download the artifact
                         sh """
-                        curl -u $NEXUS_USERNAME:$NEXUS_PASSWORD -O http://35.168.18.196:8081/repository/catalogue/com/roboshop/catalogue/2.0.0/cat.zip
+                        curl -u $NEXUS_USERNAME:$NEXUS_PASSWORD -O http://35.168.18.196:8081/repository/catalogue/com/roboshop/catalogue/2.0.0/catalogue-2.0.0.zip
                         """
                     }
                 }
