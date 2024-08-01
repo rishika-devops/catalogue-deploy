@@ -19,7 +19,7 @@ pipeline {
     stages {
         stage('Print Credentials') {
             steps {
-                script {
+                
                     withCredentials([usernamePassword(credentialsId: 'nexus-credentials-id', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                         // Debugging: Print credentials to the console (not recommended for production)
                         echo "Nexus Username: ${env.NEXUS_USERNAME}"
@@ -29,7 +29,7 @@ pipeline {
                         sh """
                         curl -u $NEXUS_USERNAME:$NEXUS_PASSWORD -O http://35.168.18.196:8081/repository/catalogue/com/roboshop/catalogue/2.0.0/catalogue-2.0.0.zip
                         """
-                    }
+                    
                 }
             }
         stage('print version') { 
