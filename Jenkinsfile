@@ -17,21 +17,6 @@ pipeline {
         booleanParam(name: 'destroy' , defaultValue: 'false' , description: 'do u want to destroy?' )
     }
     stages {
-        stage('Print Credentials') {
-            steps {
-                
-                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials-id', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                        // Debugging: Print credentials to the console (not recommended for production)
-                        echo "Nexus Username: ${env.NEXUS_USERNAME}"
-                        echo "Nexus Password: ${env.NEXUS_PASSWORD}"
-                        
-                        // Securely download the artifact
-                        sh """
-                        curl -u $NEXUS_USERNAME:$NEXUS_PASSWORD -O http://35.168.18.196:8081/repository/catalogue/com/roboshop/catalogue/2.0.0/catalogue-2.0.0.zip
-                        """
-                    
-                }
-            }
         stage('print version') { 
             steps {
                 sh """
@@ -97,7 +82,7 @@ pipeline {
             echo " i will say hello when pipeline is success"
         }
     }
-}
+
 
 
 
