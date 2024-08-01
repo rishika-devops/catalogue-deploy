@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     // Use Jenkins credentials plugin to provide username and password
-                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials-id', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: 'nexus-auth', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                         // Debugging: Print credentials to the console (not recommended for production)
                         echo "Nexus Username: ${env.NEXUS_USERNAME}"
                         echo "Nexus Password: ${env.NEXUS_PASSWORD}"
